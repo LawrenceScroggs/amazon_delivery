@@ -12,7 +12,18 @@
 
 
 /*******************delivery functions********************************/
+delivery::delivery(char * a_name, char * a_address, char * a_d_type, char * a_contents):customer(a_name,a_address,a_d_type,a_contents){
 
+
+}
+delivery::delivery(){
+
+}
+delivery::~delivery(){
+
+
+
+}
 
 
 /*******************pick up functions*********************************/

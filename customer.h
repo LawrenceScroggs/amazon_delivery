@@ -24,9 +24,12 @@ class customer{
     virtual char * get_type() = 0;
     virtual char * get_contents() = 0;
 
+    void set_next();
 
   protected:
 
+    customer(const customer & obj);
+    customer(char * name,char * a_address,char * a_d_type, char * a_contents);
     customer();
     ~customer();
 

@@ -14,7 +14,7 @@
 class delivery: public customer{
 
   public:
-
+    delivery(char * a_name, char * a_address, char * a_d_type, char * a_contents);
     delivery();
     ~delivery();
 
