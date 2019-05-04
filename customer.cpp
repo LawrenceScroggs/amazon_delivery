@@ -11,6 +11,11 @@
 
 
 // invokes constructor while setting var
+void set_next(){
+
+
+
+}
 customer::customer(char * a_name, char * a_address, char * a_d_type, char * a_contents){
 
   name = new char[strlen(a_name) + 1];
@@ -53,7 +58,6 @@ customer::customer(){
   contents = new char[100]();
 
   next = NULL;
-  rear = NULL;
 
 }
 // destructor

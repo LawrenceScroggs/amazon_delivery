@@ -23,10 +23,13 @@ class customer{
     customer(char * name,char * a_address,char * a_d_type, char * a_contents);
     customer();
     virtual ~customer();
-    virtual char * get_name() = 0;
-    virtual char * get_address() = 0;
-    virtual char * get_type() = 0;
-    virtual char * get_contents() = 0;
+    virtual char * get_name(char * a_name) = 0;
+    virtual char * get_address(char * address) = 0;
+    virtual char * get_type(char * a_d_type) = 0;
+    virtual char * get_contents(char * a_contents) = 0;
+
+    //virtual void go_next() = 0;
+    virtual void set_first() = 0;
 
     void set_next();
 
@@ -38,7 +41,6 @@ class customer{
     char * d_type; // delivery type
     char * contents;
 
-    customer * rear;
     customer * next;
 
 

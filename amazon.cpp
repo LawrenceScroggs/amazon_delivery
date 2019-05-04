@@ -13,10 +13,29 @@
 
 int main(){
 
+  customer * a = new delivery;
+  delivery * d = dynamic_cast<delivery*>(a);
 
+
+  if(!d)
+    cout << "error" << endl;
+
+  else
+    cout << "successful" << endl;
   
+  char choice = ' ';
+
+  switch (choice){
+
+    default : 
+      cout << "Invalid Choice" << '\n' << '\n';
+    case 'D':
+      {    
+      d->set_next();
+      }
 
 
+  }
 
   return 0;
 

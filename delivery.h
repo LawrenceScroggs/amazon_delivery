@@ -18,14 +18,14 @@ class delivery: public customer{
     delivery();
     ~delivery();
 
-    char * get_name();
-    char * get_address();
-    char * get_type();
-    char * get_contents();
+    char * get_name(char * a_name);
+    char * get_address(char * a_address);
+    char * get_type(char * a_d_type);
+    char * get_contents(char * a_contents);
+
+    void set_first();
 
   protected:
-
-    customer * buyer;
 
     customer * rear;
 
