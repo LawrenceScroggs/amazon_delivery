@@ -19,6 +19,10 @@ class customer{
 
   public:
 
+    customer(const customer & obj);
+    customer(char * name,char * a_address,char * a_d_type, char * a_contents);
+    customer();
+    virtual ~customer();
     virtual char * get_name() = 0;
     virtual char * get_address() = 0;
     virtual char * get_type() = 0;
@@ -28,10 +32,6 @@ class customer{
 
   protected:
 
-    customer(const customer & obj);
-    customer(char * name,char * a_address,char * a_d_type, char * a_contents);
-    customer();
-    ~customer();
 
     char * name;
     char * address;

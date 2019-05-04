@@ -25,6 +25,10 @@ class delivery: public customer{
 
   protected:
 
+    customer * buyer;
+
+    customer * rear;
+
 
 };
 // pick up of item

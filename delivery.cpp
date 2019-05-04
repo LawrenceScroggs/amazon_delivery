@@ -12,8 +12,29 @@
 
 
 /*******************delivery functions********************************/
-delivery::delivery(char * a_name, char * a_address, char * a_d_type, char * a_contents):customer(a_name,a_address,a_d_type,a_contents){
 
+char * delivery::get_name(){
+
+}
+char * delivery::get_address(){
+
+
+}
+char * delivery::get_type(){
+
+
+
+}
+char * delivery::get_content(){
+
+
+
+}
+delivery::delivery(char * a_name, char * a_address, char * a_d_type, char * a_contents):customer(a_name,a_address,a_d_type,a_contents)
+{
+
+  buyer = NULL;
+  rear = NULL;
 
 }
 delivery::delivery(){
