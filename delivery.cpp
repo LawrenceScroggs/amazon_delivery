@@ -13,46 +13,58 @@
 
 /*******************delivery functions********************************/
 
+void delivery::set_next(customer * connection){
 
+
+  next = connection;
   
+}
+customer * delivery::get_next(){
 
-
-void delivery::set_first(){
-
-  rear = this->rear;
+  return next;
 
 }
-char * delivery::get_name(char * a_name){
+char * delivery::set_name(char * a_name){
 
   name = new char[strlen(a_name) + 1];
   strcpy(name,a_name);
 
 }
-char * delivery::get_address(char * a_address){
+char * delivery::set_address(char * a_address){
 
   address = new char[strlen(a_address) + 1];
   strcpy(name, a_address);
 
 }
-char * delivery::get_type(char * a_d_type){
+char * delivery::set_type(){
 
-  d_type = new char[strlen(a_d_type) + 1];
-  strcpy(name, a_d_type);
+  
+  char temp[9]  = {'D','e','l','i','v','e','r','y','\n'};
+ 
+  d_type = new char[9];
+
+  strcpy(d_type, temp);
 
 }
-char * delivery::get_contents(char * a_contents){
+char * delivery::set_contents(char * a_contents){
 
   contents = new char[strlen(a_contents) + 1];
   strcpy(name, a_contents);
 
 }
-delivery::delivery(char * a_name, char * a_address, char * a_d_type, char * a_contents):customer(a_name,a_address,a_d_type,a_contents)
-{
-
-  rear = NULL;
-
-}
+// sets constructor 
 delivery::delivery(){
+
+  cout << "Name of the Person receiving: ";
+  set_name(read());
+
+  cout << "Address of receiver: ";
+  set_address(read());
+
+  set_type();
+
+  cout << "Contents being delivered: ";
+  set_contents(read());
 
 }
 delivery::~delivery(){

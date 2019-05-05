@@ -19,22 +19,24 @@ class customer{
 
   public:
 
-    customer(const customer & obj);
-    customer(char * name,char * a_address,char * a_d_type, char * a_contents);
-    customer();
-    virtual ~customer();
-    virtual char * get_name(char * a_name) = 0;
-    virtual char * get_address(char * address) = 0;
-    virtual char * get_type(char * a_d_type) = 0;
-    virtual char * get_contents(char * a_contents) = 0;
+    char * read();
+    virtual char * set_name(char * a_name) = 0;
+    virtual char * set_address(char * address) = 0;
+    virtual char * set_type() = 0;
+    virtual char * set_contents(char * a_contents) = 0;
+//TODO    virtual void print_info() = 0; 
 
-    //virtual void go_next() = 0;
-    virtual void set_first() = 0;
+    virtual void set_next(customer * connection) = 0;
+    virtual customer * get_next() = 0;
+    //    virtual void set_first() = 0;
 
-    void set_next();
 
   protected:
 
+   // customer(const customer & obj);
+   // customer(char * name,char * a_address,char * a_d_type, char * a_contents);
+    customer();
+    virtual ~customer();
 
     char * name;
     char * address;
@@ -42,6 +44,4 @@ class customer{
     char * contents;
 
     customer * next;
-
-
 };

@@ -10,13 +10,7 @@
 
 
 
-// invokes constructor while setting var
-void set_next(){
-
-
-
-}
-customer::customer(char * a_name, char * a_address, char * a_d_type, char * a_contents){
+/*customer::customer(char * a_name, char * a_address, char * a_d_type, char * a_contents){
 
   name = new char[strlen(a_name) + 1];
   strcpy(name, a_name);
@@ -47,6 +41,16 @@ customer::customer(const customer & obj){
   strcpy(name, obj.contents);
 
   next = obj.next;
+
+}*/
+// read function to get info
+char * customer::read(){
+
+  char * temp = new char[500];
+  cin.get(temp,500);
+  cin.ignore(500,'\n');
+
+  return temp;
 
 }
 // regular constructor

@@ -13,7 +13,7 @@
 
 int main(){
 
-  customer * a = new delivery;
+/*  customer * a = new delivery;
   delivery * d = dynamic_cast<delivery*>(a);
 
 
@@ -31,11 +31,11 @@ int main(){
       cout << "Invalid Choice" << '\n' << '\n';
     case 'D':
       {    
-      d->set_next();
+      d->set_first();
       }
 
 
-  }
+  }*/
 
   return 0;
 

@@ -18,17 +18,18 @@ class delivery: public customer{
     delivery();
     ~delivery();
 
-    char * get_name(char * a_name);
-    char * get_address(char * a_address);
-    char * get_type(char * a_d_type);
-    char * get_contents(char * a_contents);
+    char * set_name(char * a_name);
+    char * set_address(char * a_address);
+    char * set_type();
+    char * set_contents(char * a_contents);
 
-    void set_first();
-
+    void set_next(customer * connection);
+    customer * get_next();
+    
   protected:
 
-    customer * rear;
 
+    customer * next;
 
 };
 // pick up of item
@@ -39,10 +40,13 @@ class pick_up: public customer{
     pick_up();
     ~pick_up();
 
-    char * get_name();
-    char * get_address();
-    char * get_type();
-    char * get_contents();
+    char * set_name(char * a_name);
+    char * set_address(char * a_adress);
+    char * set_type();
+    char * set_contents(char * a_contents);
+    
+    void set_next(customer * connection);
+    customer * get_next();
     
   protected:
 
@@ -56,10 +60,15 @@ class cod: public customer{
     cod();
     ~cod();
 
-    char * get_name();
-    char * get_address();
-    char * get_type();
-    char * get_contents();
+    char * set_name(char * a_name);
+    char * set_address(char * a_adress);
+    char * set_type();
+    char * set_contents(char * a_contents);
+
+    bool cash_collect();
+    
+    void set_next(customer * connection);
+    customer * get_next();
     
   protected:
 
@@ -74,10 +83,15 @@ class sig_req: public customer{
     sig_req();
     ~sig_req();
 
-    char * get_name();
-    char * get_address();
-    char * get_type();
-    char * get_contents();
+    char * set_name(char * a_name);
+    char * set_address(char * a_adress);
+    char * set_type();
+    char * set_contents(char * a_contents);
+    
+    bool sig_collect();
+
+    void set_next(customer * connection);
+    customer * get_next();
     
   protected:
 
