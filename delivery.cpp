@@ -154,6 +154,82 @@ pick_up::~pick_up(){
 
 /*******************cod functions************************************/
 
+void cod::print_info(){
+
+  cout << "ROUTE TYPE:::: " << d_type << endl;
+  cout << "************************************" << endl;
+  cout << "Customer Name: " << name << endl;
+  cout << "Customer Address: " << address << endl;
+  cout << "Contents: " << contents << endl << endl;
+  cout << "Amount Due: " << 
+  cout << "_____________________________________________\n\n\n";
+ 
+}
+void cod::set_next(customer * connection){
+
+
+  next = connection;
+  
+}
+customer * cod::get_next(){
+
+  return next;
+
+}
+char * cod::set_name(char * a_name){
+
+  name = new char[strlen(a_name) + 1];
+  strcpy(name,a_name);
+
+}
+char * cod::set_address(char * a_address){
+
+  address = new char[strlen(a_address) + 1];
+  strcpy(name, a_address);
+
+}
+char * cod::set_contents(char * a_contents){
+
+  contents = new char[strlen(a_contents) + 1];
+  strcpy(name, a_contents);
+
+}
+void cod::set_cash(){
+
+  cout << "Please set amount due: ";
+  cin >> cash_paid();
+  cin.ignore(100,'\n');
+
+}
+char * cod::set_type(){
+
+  char temp[15] = {'C','a','s','h','-','O','n','-','D','e','m','a','n','d','\n'};
+ 
+  d_type = new char[15];
+
+  strcpy(d_type, temp);
+
+}
+pick_up::pick_up(){
+
+  cout << "Name of the Person receiving: ";
+  set_name(read());
+
+  cout << "Address of receiver: ";
+  set_address(read());
+
+  set_type();
+
+  cout << "Contents being delivered: ";
+  set_contents(read());
+
+}
+pick_up::~pick_up(){
+
+}
+
+
+/*******************cod functions************************************/
 
 
 /********************signature req functions**************************/

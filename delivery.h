@@ -70,7 +70,8 @@ class cod: public customer{
     char * set_contents(char * a_contents);
 
     bool cash_collect();
-    
+   
+    void set_cash();
     void set_next(customer * connection);
     void print_info(); 
 

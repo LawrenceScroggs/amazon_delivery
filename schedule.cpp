@@ -11,24 +11,44 @@
 
 
 
+
 // wrapper for display
 void schedule::display_route(){
 
+  if(!rear){
+    cout << "No Route Scheduled\n\n";
+    return;
+  }
+  display_route(rear);
 
 }
-// wrapper function
+// recursive call for display
+void schedule::display_route(customer * rear){
+
+  if(!rear){
+    cout << "!!!!!!!!END OF ROUTE!!!!!!!!!!!\n\n";
+    return;
+  }
+
+  rear->print_info();
+
+  display_route(rear->get_next());
+
+}
+// wrapper function for adding delivery
 void schedule::add_delivery(){
 
   if(!rear){
 
-    rear =new delivery;
+    rear = new delivery;
     return;
 
   }
   
-  add_delivery(rear->get_next());
+  add_delivery(rear);
 
 }
+//recursive call to move to empty spot
 void schedule::add_delivery(customer * rear){
 
   if(!rear->get_next()){
@@ -36,6 +56,32 @@ void schedule::add_delivery(customer * rear){
     rear->set_next(temp);
     return;
   }
+
+  add_delivery(rear->get_next());
+}  
+// wrapper function for adding pick up
+void schedule::add_pick_up(){
+
+  if(!rear){
+
+    rear = new pick_up;
+    return;
+
+  }
+  
+  add_pick_up(rear);
+
+}
+//recursive call to move to empty spot
+void schedule::add_pick_up(customer * rear){
+
+  if(!rear->get_next()){
+    customer * temp = new pick_up;
+    rear->set_next(temp);
+    return;
+  }
+
+  add_pick_up(rear->get_next());
 }  
 void schedule::delivery_type(){
 
@@ -57,6 +103,7 @@ void schedule::delivery_type(){
                 add_delivery();
                 break;
       case 'B':
+                add_pick_up();
                 break;
       case 'C':
                 break;
