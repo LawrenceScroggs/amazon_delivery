@@ -13,6 +13,16 @@
 
 /*******************delivery functions********************************/
 
+void delivery::print_info(){
+
+  cout << "ROUTE TYPE:::: " << d_type << endl;
+  cout << "************************************" << endl;
+  cout << "Customer Name: " << name << endl;
+  cout << "Customer Address: " << address << endl;
+  cout << "Contents: " << contents << endl << endl;
+  cout << "_____________________________________________\n\n\n";
+ 
+}
 void delivery::set_next(customer * connection){
 
 
@@ -70,11 +80,76 @@ delivery::delivery(){
 delivery::~delivery(){
 
 
-
 }
 
 
 /*******************pick up functions*********************************/
+
+void pick_up::print_info(){
+
+  cout << "ROUTE TYPE:::: " << d_type << endl;
+  cout << "************************************" << endl;
+  cout << "Customer Name: " << name << endl;
+  cout << "Customer Address: " << address << endl;
+  cout << "Contents: " << contents << endl << endl;
+  cout << "_____________________________________________\n\n\n";
+ 
+}
+void pick_up::set_next(customer * connection){
+
+
+  next = connection;
+  
+}
+customer * pick_up::get_next(){
+
+  return next;
+
+}
+char * pick_up::set_name(char * a_name){
+
+  name = new char[strlen(a_name) + 1];
+  strcpy(name,a_name);
+
+}
+char * pick_up::set_address(char * a_address){
+
+  address = new char[strlen(a_address) + 1];
+  strcpy(name, a_address);
+
+}
+char * pick_up::set_contents(char * a_contents){
+
+  contents = new char[strlen(a_contents) + 1];
+  strcpy(name, a_contents);
+
+}
+char * pick_up::set_type(){
+
+  char temp[8]  = {'P','i','c','k','-','U','p','\n'};
+ 
+  d_type = new char[8];
+
+  strcpy(d_type, temp);
+
+}
+pick_up::pick_up(){
+
+  cout << "Name of the Person receiving: ";
+  set_name(read());
+
+  cout << "Address of receiver: ";
+  set_address(read());
+
+  set_type();
+
+  cout << "Contents being delivered: ";
+  set_contents(read());
+
+}
+pick_up::~pick_up(){
+
+}
 
 
 /*******************cod functions************************************/

@@ -24,11 +24,11 @@ class customer{
     virtual char * set_address(char * address) = 0;
     virtual char * set_type() = 0;
     virtual char * set_contents(char * a_contents) = 0;
-//TODO    virtual void print_info() = 0; 
 
+    virtual void print_info() = 0; 
     virtual void set_next(customer * connection) = 0;
+
     virtual customer * get_next() = 0;
-    //    virtual void set_first() = 0;
 
 
   protected:

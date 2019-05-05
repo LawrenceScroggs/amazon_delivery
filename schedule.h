@@ -20,6 +20,7 @@ class schedule{
 
     void delivery_type(); // sets the type of delivery
     void add_delivery(); // sets first delivery/pick up of day;
+    void display_route(); 
 
   protected:
 
