@@ -7,12 +7,19 @@
 // parent class and use dynamic binding and RTTI
 
 
-#include "delivery.h"
+#include "schedule.h"
 
 
 
 int main(){
 
+  schedule route1;
+
+  //sets up route for delivery
+  route1.delivery_type();
+
+  //displays route;
+  route1.display_route();
 
 
   return 0;

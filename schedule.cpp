@@ -19,13 +19,15 @@ void schedule::display_route(){
     cout << "No Route Scheduled\n\n";
     return;
   }
+  rear = this->rear; // setting beginning of list
+
   display_route(rear);
 
 }
 // recursive call for display
 void schedule::display_route(customer * rear){
 
-  if(!rear){
+  if(rear == this->rear){
     cout << "!!!!!!!!END OF ROUTE!!!!!!!!!!!\n\n";
     return;
   }
@@ -89,6 +91,8 @@ void schedule::add_cod(){
   if(!rear){
 
     rear = new cod;
+    cod * c = dynamic_cast<cod*>(rear);
+    c->set_cash();
     return;
 
   }
@@ -101,11 +105,37 @@ void schedule::add_cod(customer * rear){
 
   if(!rear->get_next()){
     customer * temp = new cod;
+    cod * c = dynamic_cast<cod*>(temp);
+    c->set_cash();
+    rear->set_next(c);
+    return;
+  }
+
+  add_cod(rear->get_next());
+}  
+// wrapper function for adding sig_req
+void schedule::add_sig_req(){
+
+  if(!rear){
+
+    rear = new sig_req;
+    return;
+
+  }
+  
+  add_cod(rear);
+
+}
+//recursive call to move to empty spot
+void schedule::add_sig_req(customer * rear){
+
+  if(!rear->get_next()){
+    customer * temp = new sig_req;
     rear->set_next(temp);
     return;
   }
 
-  add_pick_up(rear->get_next());
+  add_cod(rear->get_next());
 }  
 void schedule::delivery_type(){
 

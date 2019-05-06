@@ -220,8 +220,6 @@ cod::cod(){
 
   set_type();
 
-  set_cash();
-
   cout << "Contents being delivered: ";
   set_contents(read());
 
