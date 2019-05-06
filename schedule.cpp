@@ -83,6 +83,30 @@ void schedule::add_pick_up(customer * rear){
 
   add_pick_up(rear->get_next());
 }  
+// wrapper function for adding cod
+void schedule::add_cod(){
+
+  if(!rear){
+
+    rear = new cod;
+    return;
+
+  }
+  
+  add_cod(rear);
+
+}
+//recursive call to move to empty spot
+void schedule::add_cod(customer * rear){
+
+  if(!rear->get_next()){
+    customer * temp = new cod;
+    rear->set_next(temp);
+    return;
+  }
+
+  add_pick_up(rear->get_next());
+}  
 void schedule::delivery_type(){
 
   cout << "Please enter the type of delivery you want:\n"
@@ -106,6 +130,7 @@ void schedule::delivery_type(){
                 add_pick_up();
                 break;
       case 'C':
+                add_cod();
                 break;
       case 'D':
                 break;
@@ -113,6 +138,7 @@ void schedule::delivery_type(){
                 break;
 
       default :
+                cout << "Wrong Input" << endl;
                 break;
     }
   }

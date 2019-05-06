@@ -99,6 +99,7 @@ class sig_req: public customer{
 
     void set_next(customer * connection);
     void print_info(); 
+    void set_sig();
 
     customer * get_next();
     

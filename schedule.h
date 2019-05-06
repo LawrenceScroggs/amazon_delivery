@@ -25,11 +25,13 @@ class schedule{
 
     void add_pick_up(); // sets a pick up
     void add_delivery(); // sets delivery
+    void add_cod(); // sets cod
 
     /***RECURSIVE CALLS****************/
     void display_route(customer * rear);
     void add_delivery(customer * rear);
     void add_pick_up(customer * rear); 
+    void add_cod(customer * rear);
 
     customer * rear;
 
