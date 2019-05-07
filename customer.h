@@ -19,7 +19,7 @@ class customer{
 
   public:
 
-    char * read();
+//    char * read();
     virtual char * set_name(char * a_name) = 0;
     virtual char * set_address(char * address) = 0;
     virtual char * set_type() = 0;
@@ -33,7 +33,7 @@ class customer{
 
   protected:
 
-   // customer(const customer & obj);
+   customer(const customer & obj);
    // customer(char * name,char * a_address,char * a_d_type, char * a_contents);
     customer();
     virtual ~customer();

@@ -29,7 +29,7 @@ void delivery::set_next(customer * connection){
   next = connection;
   
 }
-customer * delivery::get_next(){
+customer *& delivery::get_next(){
 
   return next;
 
@@ -43,7 +43,7 @@ char * delivery::set_name(char * a_name){
 char * delivery::set_address(char * a_address){
 
   address = new char[strlen(a_address) + 1];
-  strcpy(name, a_address);
+  strcpy(address, a_address);
 
 }
 char * delivery::set_type(){
@@ -59,22 +59,34 @@ char * delivery::set_type(){
 char * delivery::set_contents(char * a_contents){
 
   contents = new char[strlen(a_contents) + 1];
-  strcpy(name, a_contents);
+  strcpy(contents, a_contents);
 
 }
 // sets constructor 
 delivery::delivery(){
 
+  char * temp = new char[500];
   cout << "Name of the Person receiving: ";
-  set_name(read());
+  cin.get(temp,500);
+  cin.ignore(500,'\n');
+  set_name(temp);
+  delete temp;
 
+  char * temp2 = new char[500];
   cout << "Address of receiver: ";
-  set_address(read());
+  cin.get(temp2,500);
+  cin.ignore(500,'\n');
+  set_address(temp2);
+  delete temp2;
 
   set_type();
 
+  char * temp3 = new char[500];
   cout << "Contents being delivered: ";
-  set_contents(read());
+  cin.get(temp3,500);
+  cin.ignore(500,'\n');
+  set_contents(temp3);
+  delete temp3;
 
 }
 delivery::~delivery(){
@@ -115,13 +127,13 @@ char * pick_up::set_name(char * a_name){
 char * pick_up::set_address(char * a_address){
 
   address = new char[strlen(a_address) + 1];
-  strcpy(name, a_address);
+  strcpy(address, a_address);
 
 }
 char * pick_up::set_contents(char * a_contents){
 
   contents = new char[strlen(a_contents) + 1];
-  strcpy(name, a_contents);
+  strcpy(contents, a_contents);
 
 }
 char * pick_up::set_type(){
@@ -135,23 +147,33 @@ char * pick_up::set_type(){
 }
 pick_up::pick_up(){
 
-  cout << "Name of the Person receiving: ";
-  set_name(read());
+  char * temp = new char[500];
+  cout << "Name of the Person needing Pick-Up: ";
+  cin.get(temp,500);
+  cin.ignore(500,'\n');
+  set_name(temp);
+  delete temp;
 
+  char * temp2 = new char[500];
   cout << "Address of receiver: ";
-  set_address(read());
+  cin.get(temp2,500);
+  cin.ignore(500,'\n');
+  set_address(temp2);
+  delete temp2;
 
   set_type();
 
-  cout << "Contents being delivered: ";
-  set_contents(read());
+  char * temp3 = new char[500];
+  cout << "Contents being picked up: ";
+  cin.get(temp3,500);
+  cin.ignore(500,'\n');
+  set_contents(temp3);
+  delete temp3;
 
 }
 pick_up::~pick_up(){
 
 }
-
-
 /*******************cod functions************************************/
 
 void cod::print_info(){
@@ -212,22 +234,34 @@ char * cod::set_type(){
 }
 cod::cod(){
 
+  char * temp = new char[500];
   cout << "Name of the Person receiving: ";
-  set_name(read());
+  cin.get(temp,500);
+  cin.ignore(500,'\n');
+  set_name(temp);
+  delete temp;
 
+  char * temp2 = new char[500];
   cout << "Address of receiver: ";
-  set_address(read());
+  cin.get(temp2,500);
+  cin.ignore(500,'\n');
+  set_address(temp2);
+  delete temp2;
 
   set_type();
 
+  char * temp3 = new char[500];
   cout << "Contents being delivered: ";
-  set_contents(read());
+  cin.get(temp3,500);
+  cin.ignore(500,'\n');
+  set_contents(temp3);
+  delete temp3;
 
 }
 cod::~cod(){
 
-}
 
+}
 /********************signature req functions**************************/
 
 void sig_req::print_info(){
@@ -271,7 +305,7 @@ char * sig_req::set_contents(char * a_contents){
 }
 void sig_req::set_sig(){
 
-  cout << "Signature Needed";
+  cout << "Signature Needed" << endl;
   signature = true;
 
 }
@@ -286,18 +320,28 @@ char * sig_req::set_type(){
 }
 sig_req::sig_req(){
 
+  char * temp = new char[500];
   cout << "Name of the Person receiving: ";
-  set_name(read());
+  cin.get(temp,500);
+  cin.ignore(500,'\n');
+  set_name(temp);
+  delete temp;
 
+  char * temp2 = new char[500];
   cout << "Address of receiver: ";
-  set_address(read());
+  cin.get(temp2,500);
+  cin.ignore(500,'\n');
+  set_address(temp2);
+  delete temp2;
 
   set_type();
 
-  set_sig();
-
+  char * temp3 = new char[500];
   cout << "Contents being delivered: ";
-  set_contents(read());
+  cin.get(temp3,500);
+  cin.ignore(500,'\n');
+  set_contents(temp3);
+  delete temp3;
 
 }
 sig_req::~sig_req(){

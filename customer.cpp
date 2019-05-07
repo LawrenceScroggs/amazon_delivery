@@ -24,7 +24,7 @@
   contents = new char[strlen(a_contents) + 1];
   strcpy(name, a_contents);
 
-}
+}*/
 // copy constructor
 customer::customer(const customer & obj){
 
@@ -42,9 +42,9 @@ customer::customer(const customer & obj){
 
   next = obj.next;
 
-}*/
+}
 // read function to get info
-char * customer::read(){
+/*char * customer::read(){
 
   char * temp = new char[500];
   cin.get(temp,500);
@@ -52,7 +52,7 @@ char * customer::read(){
 
   return temp;
 
-}
+}*/
 // regular constructor
 customer::customer(){
   

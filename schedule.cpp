@@ -12,6 +12,13 @@
 
 
 
+
+// this will link the CLL
+void schedule::link_up(){
+
+  
+
+}
 // wrapper for display
 void schedule::display_route(){
 
@@ -19,22 +26,22 @@ void schedule::display_route(){
     cout << "No Route Scheduled\n\n";
     return;
   }
-  rear = this->rear; // setting beginning of list
+  customer * current = rear; // setting beginning of list
 
-  display_route(rear);
+  display_route(current);
 
 }
 // recursive call for display
-void schedule::display_route(customer * rear){
+void schedule::display_route(customer * current){
 
-  if(rear == this->rear){
+  if(!current->get_next()){
     cout << "!!!!!!!!END OF ROUTE!!!!!!!!!!!\n\n";
     return;
   }
 
   rear->print_info();
 
-  display_route(rear->get_next());
+  display_route(current->get_next());
 
 }
 // wrapper function for adding delivery
@@ -42,7 +49,8 @@ void schedule::add_delivery(){
 
   if(!rear){
 
-    rear = new delivery;
+    rear = new delivery();
+    
     return;
 
   }
@@ -54,7 +62,7 @@ void schedule::add_delivery(){
 void schedule::add_delivery(customer * rear){
 
   if(!rear->get_next()){
-    customer * temp = new delivery;
+    customer * temp = new delivery();
     rear->set_next(temp);
     return;
   }
@@ -123,7 +131,7 @@ void schedule::add_sig_req(){
 
   }
   
-  add_cod(rear);
+  sig_req(rear);
 
 }
 //recursive call to move to empty spot
@@ -135,21 +143,23 @@ void schedule::add_sig_req(customer * rear){
     return;
   }
 
-  add_cod(rear->get_next());
+  add_sig_req(rear->get_next());
 }  
 void schedule::delivery_type(){
 
-  cout << "Please enter the type of delivery you want:\n"
-       << "A: for delivery\n"
-       << "B: for pickup\n"
-       << "C: for cash on demand\n"
-       << "D: for signature required\n"
-       << "E: to exit and finish schedule\n";
-
   char choice = ' ';
+
   while(choice != 'E'){
+    cout << "Please enter the type of delivery you want:\n"
+         << "A: for delivery\n"
+         << "B: for pickup\n"
+         << "C: for cash on demand\n"
+         << "D: for signature required\n"
+         << "E: to exit and finish schedule\n";
+
     cin >> choice;
     cin.ignore(100,'\n');
+    choice = toupper(choice);
 
     switch (choice){
 
@@ -163,8 +173,10 @@ void schedule::delivery_type(){
                 add_cod();
                 break;
       case 'D':
+                add_sig_req();
                 break;
       case 'E':
+                link_up();
                 break;
 
       default :

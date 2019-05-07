@@ -27,6 +27,7 @@ class schedule{
     void add_delivery(); // sets delivery
     void add_cod(); // sets cod
     void add_sig_req(); // set sig_req
+    void link_up(); // connects CLL
 
     /***RECURSIVE CALLS****************/
     void display_route(customer * rear);
