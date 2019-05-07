@@ -25,7 +25,6 @@ void delivery::print_info(){
 }
 void delivery::set_next(customer * connection){
 
-
   next = connection;
   
 }
@@ -48,11 +47,8 @@ char * delivery::set_address(char * a_address){
 }
 char * delivery::set_type(){
 
-  
   char temp[9]  = {'D','e','l','i','v','e','r','y','\n'};
  
-  d_type = new char[9];
-
   strcpy(d_type, temp);
 
 }
@@ -85,10 +81,15 @@ delivery::delivery(){
   cin.ignore(500,'\n');
   set_contents(temp3);
 
-  cout << endl << endl;
+  cout << endl;
+
+  delete [] temp;
+  delete [] temp2;
+  delete [] temp3;
 }
 delivery::~delivery(){
 
+  cout << "in here del" << endl;
 
 }
 
@@ -138,8 +139,6 @@ char * pick_up::set_type(){
 
   char temp[8]  = {'P','i','c','k','-','U','p','\n'};
  
-  d_type = new char[8];
-
   strcpy(d_type, temp);
 
 }
@@ -165,9 +164,15 @@ pick_up::pick_up(){
   cin.ignore(500,'\n');
   set_contents(temp3);
 
-  cout << endl << endl;
+  cout << endl;
+
+  delete [] temp;
+  delete [] temp2;
+  delete [] temp3;
 }
 pick_up::~pick_up(){
+
+  cout << "in here pick" << endl;
 
 }
 /*******************cod functions************************************/
@@ -184,7 +189,6 @@ void cod::print_info(){
  
 }
 void cod::set_next(customer * connection){
-
 
   next = connection;
   
@@ -225,8 +229,6 @@ char * cod::set_type(){
 
   char temp[15] = {'C','a','s','h','-','O','n','-','D','e','m','a','n','d','\n'};
  
-  d_type = new char[15];
-
   strcpy(d_type, temp);
 
 }
@@ -252,10 +254,15 @@ cod::cod(){
   cin.ignore(500,'\n');
   set_contents(temp3);
 
-  cout << endl << endl;
+  cout << endl;
+
+  delete [] temp;
+  delete [] temp2;
+  delete [] temp3;
 }
 cod::~cod(){
 
+  cout << "in here cod" << endl;
 
 }
 /********************signature req functions**************************/
@@ -310,11 +317,9 @@ void sig_req::set_sig(){
 }
 char * sig_req::set_type(){
 
-  char temp[19] = {'S','i','g','n','a','t','u','r','e','-','R','e','q','u','i','r','e','d','\n'};
+  char temp[10] = {'S','i','g','n','a','t','u','r','e','\n'};
  
-  d_type = new char[19];
-
-  strcpy(d_type, temp);
+  strcpy(d_type,temp);
 
 }
 sig_req::sig_req(){
@@ -341,9 +346,13 @@ sig_req::sig_req(){
 
   cout << endl;
 
+  delete [] temp;
+  delete [] temp2;
+  delete [] temp3;
 }
 sig_req::~sig_req(){
 
+  cout << "in here sig" << endl;
 }
 
 

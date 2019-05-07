@@ -42,6 +42,7 @@ customer::customer(){
 // destructor
 customer::~customer(){
 
+  cout << "virtual destructor called" << endl;
   delete [] name;
   delete [] address;
   delete [] d_type;

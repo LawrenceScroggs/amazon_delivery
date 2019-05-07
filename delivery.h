@@ -93,8 +93,6 @@ class sig_req: public customer{
     char * set_type();
     char * set_contents(char * a_contents);
     
-    bool sig_collect();
-
     void set_next(customer * connection);
     void print_info(); 
     void set_sig();
@@ -103,6 +101,6 @@ class sig_req: public customer{
     
   protected:
 
-    bool signature;
+    bool signature = false;
 
 };

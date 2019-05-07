@@ -15,24 +15,30 @@
 // deletes our route 
 void schedule::delete_route(){
 
-  rear->set_next(NULL);
-  customer * current = rear;
+  //if only one in route
+  if(rear == rear->get_next()){
+    cout << "Deleted Succesfully" << endl;
+    delete rear;
+  }
 
+  customer * current = rear->get_next();
   delete_route(current);
 
 }
+//recursive call to delete route
 void schedule::delete_route(customer * current){
 
-  if(!current->get_next()){
-    delete current;
-    cout << "Deleted Succesfully!!!" << endl;
-    return;
-  }
 
   cout << "check" << endl;
   customer * temp = current;
-  temp->set_next(current);
+  if(current == rear){
+    delete rear;
+    cout << "Deleted Succesfully!!!" << endl;
+    return;
+  }
+  current = current->get_next();
   delete temp;
+  temp = NULL;
 
   delete_route(current);
 }
@@ -169,6 +175,8 @@ void schedule::add_sig_req(){
   if(!rear){
 
     rear = new sig_req;
+    sig_req * s = dynamic_cast<sig_req*>(rear);
+    s->set_sig();
     return;
 
   }
