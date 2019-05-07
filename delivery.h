@@ -25,7 +25,7 @@ class delivery: public customer{
     void set_next(customer * connection);
     void print_info(); 
 
-    customer * get_next();
+    customer *& get_next();
     
   protected:
 
@@ -48,7 +48,7 @@ class pick_up: public customer{
     void set_next(customer * connection);
     void print_info(); 
 
-    customer * get_next();
+    customer *& get_next();
     
   protected:
 
@@ -73,7 +73,7 @@ class cod: public customer{
     void set_next(customer * connection);
     void print_info(); 
 
-    customer * get_next();
+    customer *& get_next();
     
   protected:
 
@@ -99,7 +99,7 @@ class sig_req: public customer{
     void print_info(); 
     void set_sig();
 
-    customer * get_next();
+    customer *& get_next();
     
   protected:
 

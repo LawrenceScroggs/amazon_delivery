@@ -10,21 +10,6 @@
 
 
 
-/*customer::customer(char * a_name, char * a_address, char * a_d_type, char * a_contents){
-
-  name = new char[strlen(a_name) + 1];
-  strcpy(name, a_name);
-
-  address = new char[strlen(a_address) + 1];
-  strcpy(name, a_address);
-
-  d_type = new char[strlen(a_d_type) + 1];
-  strcpy(name, a_d_type);
-  
-  contents = new char[strlen(a_contents) + 1];
-  strcpy(name, a_contents);
-
-}*/
 // copy constructor
 customer::customer(const customer & obj){
 
@@ -43,16 +28,6 @@ customer::customer(const customer & obj){
   next = obj.next;
 
 }
-// read function to get info
-/*char * customer::read(){
-
-  char * temp = new char[500];
-  cin.get(temp,500);
-  cin.ignore(500,'\n');
-
-  return temp;
-
-}*/
 // regular constructor
 customer::customer(){
   

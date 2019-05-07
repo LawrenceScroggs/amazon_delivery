@@ -20,6 +20,7 @@ class schedule{
 
     void delivery_type(); // sets the type of delivery
     void display_route(); 
+    void delete_route();
 
   protected:
 
@@ -30,6 +31,8 @@ class schedule{
     void link_up(); // connects CLL
 
     /***RECURSIVE CALLS****************/
+    void delete_route(customer * current);
+    void link_up(customer * current);
     void display_route(customer * rear);
     void add_delivery(customer * rear);
     void add_pick_up(customer * rear); 

@@ -28,15 +28,14 @@ class customer{
     virtual void print_info() = 0; 
     virtual void set_next(customer * connection) = 0;
 
-    virtual customer * get_next() = 0;
+    virtual customer *& get_next() = 0;
 
+    virtual ~customer();
 
   protected:
 
-   customer(const customer & obj);
-   // customer(char * name,char * a_address,char * a_d_type, char * a_contents);
+    customer(const customer & obj);
     customer();
-    virtual ~customer();
 
     char * name;
     char * address;

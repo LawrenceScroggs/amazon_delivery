@@ -70,14 +70,12 @@ delivery::delivery(){
   cin.get(temp,500);
   cin.ignore(500,'\n');
   set_name(temp);
-  delete temp;
 
   char * temp2 = new char[500];
   cout << "Address of receiver: ";
   cin.get(temp2,500);
   cin.ignore(500,'\n');
   set_address(temp2);
-  delete temp2;
 
   set_type();
 
@@ -86,8 +84,8 @@ delivery::delivery(){
   cin.get(temp3,500);
   cin.ignore(500,'\n');
   set_contents(temp3);
-  delete temp3;
 
+  cout << endl << endl;
 }
 delivery::~delivery(){
 
@@ -113,7 +111,7 @@ void pick_up::set_next(customer * connection){
   next = connection;
   
 }
-customer * pick_up::get_next(){
+customer *& pick_up::get_next(){
 
   return next;
 
@@ -152,14 +150,12 @@ pick_up::pick_up(){
   cin.get(temp,500);
   cin.ignore(500,'\n');
   set_name(temp);
-  delete temp;
 
   char * temp2 = new char[500];
   cout << "Address of receiver: ";
   cin.get(temp2,500);
   cin.ignore(500,'\n');
   set_address(temp2);
-  delete temp2;
 
   set_type();
 
@@ -168,8 +164,8 @@ pick_up::pick_up(){
   cin.get(temp3,500);
   cin.ignore(500,'\n');
   set_contents(temp3);
-  delete temp3;
 
+  cout << endl << endl;
 }
 pick_up::~pick_up(){
 
@@ -193,7 +189,7 @@ void cod::set_next(customer * connection){
   next = connection;
   
 }
-customer * cod::get_next(){
+customer *& cod::get_next(){
 
   return next;
 
@@ -207,13 +203,13 @@ char * cod::set_name(char * a_name){
 char * cod::set_address(char * a_address){
 
   address = new char[strlen(a_address) + 1];
-  strcpy(name, a_address);
+  strcpy(address, a_address);
 
 }
 char * cod::set_contents(char * a_contents){
 
   contents = new char[strlen(a_contents) + 1];
-  strcpy(name, a_contents);
+  strcpy(contents, a_contents);
 
 }
 void cod::set_cash(){
@@ -221,6 +217,8 @@ void cod::set_cash(){
   cout << "Please set amount due: ";
   cin >> cash_paid;
   cin.ignore(100,'\n');
+
+  cout << endl;
 
 }
 char * cod::set_type(){
@@ -239,14 +237,12 @@ cod::cod(){
   cin.get(temp,500);
   cin.ignore(500,'\n');
   set_name(temp);
-  delete temp;
 
   char * temp2 = new char[500];
   cout << "Address of receiver: ";
   cin.get(temp2,500);
   cin.ignore(500,'\n');
   set_address(temp2);
-  delete temp2;
 
   set_type();
 
@@ -255,8 +251,8 @@ cod::cod(){
   cin.get(temp3,500);
   cin.ignore(500,'\n');
   set_contents(temp3);
-  delete temp3;
 
+  cout << endl << endl;
 }
 cod::~cod(){
 
@@ -271,7 +267,10 @@ void sig_req::print_info(){
   cout << "Customer Name: " << name << endl;
   cout << "Customer Address: " << address << endl;
   cout << "Contents: " << contents << endl;
-  cout << "Signature Needed: " << "Yes" << endl << endl;
+
+  if(signature)
+    cout << "Signature Needed: " << "Yes" << endl;
+  
   cout << "_____________________________________________\n\n\n";
  
 }
@@ -280,7 +279,7 @@ void sig_req::set_next(customer * connection){
   next = connection;
   
 }
-customer * sig_req::get_next(){
+customer *& sig_req::get_next(){
 
   return next;
 
@@ -294,18 +293,18 @@ char * sig_req::set_name(char * a_name){
 char * sig_req::set_address(char * a_address){
 
   address = new char[strlen(a_address) + 1];
-  strcpy(name, a_address);
+  strcpy(address,a_address);
 
 }
 char * sig_req::set_contents(char * a_contents){
 
   contents = new char[strlen(a_contents) + 1];
-  strcpy(name, a_contents);
+  strcpy(contents, a_contents);
 
 }
 void sig_req::set_sig(){
 
-  cout << "Signature Needed" << endl;
+  cout << "Signature Needed" << endl << endl;
   signature = true;
 
 }
@@ -325,14 +324,12 @@ sig_req::sig_req(){
   cin.get(temp,500);
   cin.ignore(500,'\n');
   set_name(temp);
-  delete temp;
 
   char * temp2 = new char[500];
   cout << "Address of receiver: ";
   cin.get(temp2,500);
   cin.ignore(500,'\n');
   set_address(temp2);
-  delete temp2;
 
   set_type();
 
@@ -341,7 +338,8 @@ sig_req::sig_req(){
   cin.get(temp3,500);
   cin.ignore(500,'\n');
   set_contents(temp3);
-  delete temp3;
+
+  cout << endl;
 
 }
 sig_req::~sig_req(){

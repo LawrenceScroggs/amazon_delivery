@@ -21,6 +21,9 @@ int main(){
   //displays route;
   route1.display_route();
 
+  //deletes route;
+  route1.delete_route();
+
 
   return 0;
 
