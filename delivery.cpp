@@ -23,10 +23,13 @@ void delivery::print_info(){
   cout << "_____________________________________________\n\n\n";
  
 }
-void delivery::set_next(customer * connection){
+void delivery::set_next(customer *& connection){
+
 
   next = connection;
-  
+
+  return;
+ 
 }
 customer *& delivery::get_next(){
 
@@ -48,7 +51,8 @@ char * delivery::set_address(char * a_address){
 char * delivery::set_type(){
 
   char temp[9]  = {'D','e','l','i','v','e','r','y','\n'};
- 
+
+  d_type = new char[strlen(temp)+1];
   strcpy(d_type, temp);
 
 }
@@ -89,8 +93,6 @@ delivery::delivery(){
 }
 delivery::~delivery(){
 
-  cout << "in here del" << endl;
-
 }
 
 
@@ -106,7 +108,7 @@ void pick_up::print_info(){
   cout << "_____________________________________________\n\n\n";
  
 }
-void pick_up::set_next(customer * connection){
+void pick_up::set_next(customer *& connection){
 
 
   next = connection;
@@ -139,6 +141,7 @@ char * pick_up::set_type(){
 
   char temp[8]  = {'P','i','c','k','-','U','p','\n'};
  
+  d_type = new char[strlen(temp)+1];
   strcpy(d_type, temp);
 
 }
@@ -172,8 +175,6 @@ pick_up::pick_up(){
 }
 pick_up::~pick_up(){
 
-  cout << "in here pick" << endl;
-
 }
 /*******************cod functions************************************/
 
@@ -188,7 +189,7 @@ void cod::print_info(){
   cout << "_____________________________________________\n\n\n";
  
 }
-void cod::set_next(customer * connection){
+void cod::set_next(customer *& connection){
 
   next = connection;
   
@@ -229,6 +230,7 @@ char * cod::set_type(){
 
   char temp[15] = {'C','a','s','h','-','O','n','-','D','e','m','a','n','d','\n'};
  
+  d_type = new char[strlen(temp)+1];
   strcpy(d_type, temp);
 
 }
@@ -262,8 +264,6 @@ cod::cod(){
 }
 cod::~cod(){
 
-  cout << "in here cod" << endl;
-
 }
 /********************signature req functions**************************/
 
@@ -281,7 +281,7 @@ void sig_req::print_info(){
   cout << "_____________________________________________\n\n\n";
  
 }
-void sig_req::set_next(customer * connection){
+void sig_req::set_next(customer *& connection){
 
   next = connection;
   
@@ -319,6 +319,7 @@ char * sig_req::set_type(){
 
   char temp[10] = {'S','i','g','n','a','t','u','r','e','\n'};
  
+  d_type = new char[strlen(temp)+1];
   strcpy(d_type,temp);
 
 }
@@ -352,7 +353,6 @@ sig_req::sig_req(){
 }
 sig_req::~sig_req(){
 
-  cout << "in here sig" << endl;
 }
 
 

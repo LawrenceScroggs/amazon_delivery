@@ -19,6 +19,8 @@ void schedule::delete_route(){
   if(rear == rear->get_next()){
     cout << "Deleted Succesfully" << endl;
     delete rear;
+    rear = NULL;
+    return;
   }
 
   customer * current = rear->get_next();
@@ -29,7 +31,6 @@ void schedule::delete_route(){
 void schedule::delete_route(customer * current){
 
 
-  cout << "check" << endl;
   customer * temp = current;
   if(current == rear){
     delete rear;
@@ -47,6 +48,12 @@ void schedule::link_up(){
 
   customer * current = rear;
 
+  if(!current->get_next()){
+    current->set_next(rear);
+    return;
+  }
+
+  else
   current = current->get_next();
 
   link_up(current);
@@ -96,7 +103,7 @@ void schedule::add_delivery(){
 
   if(!rear){
 
-    rear = new delivery();
+    rear = new delivery;
     
     return;
 
@@ -109,7 +116,7 @@ void schedule::add_delivery(){
 void schedule::add_delivery(customer * rear){
 
   if(!rear->get_next()){
-    customer * temp = new delivery();
+    customer * temp = new delivery;
     rear->set_next(temp);
 
     return;
@@ -163,7 +170,7 @@ void schedule::add_cod(customer * rear){
     customer * temp = new cod;
     cod * c = dynamic_cast<cod*>(temp);
     c->set_cash();
-    rear->set_next(c);
+    rear->set_next(temp);
     return;
   }
 
@@ -191,7 +198,7 @@ void schedule::add_sig_req(customer * rear){
     customer * temp = new sig_req;
     sig_req * s = dynamic_cast<sig_req*>(temp);
     s->set_sig();
-    rear->set_next(s);
+    rear->set_next(temp);
     return;
   }
 

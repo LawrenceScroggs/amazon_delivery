@@ -13,6 +13,8 @@
 // copy constructor
 customer::customer(const customer & obj){
 
+  cout << "copy invoked" << endl;
+
   name = new char[strlen(obj.name) + 1];
   strcpy(name, obj.name);
 
@@ -30,11 +32,6 @@ customer::customer(const customer & obj){
 }
 // regular constructor
 customer::customer(){
-  
-  name = new char[100]();
-  address = new char[200]();
-  d_type = new char[100]();
-  contents = new char[100]();
 
   next = NULL;
 
@@ -42,7 +39,6 @@ customer::customer(){
 // destructor
 customer::~customer(){
 
-  cout << "virtual destructor called" << endl;
   delete [] name;
   delete [] address;
   delete [] d_type;

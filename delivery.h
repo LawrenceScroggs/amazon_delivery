@@ -22,7 +22,7 @@ class delivery: public customer{
     char * set_type();
     char * set_contents(char * a_contents);
 
-    void set_next(customer * connection);
+    void set_next(customer *& connection);
     void print_info(); 
 
     customer *& get_next();
@@ -45,7 +45,7 @@ class pick_up: public customer{
     char * set_type();
     char * set_contents(char * a_contents);
     
-    void set_next(customer * connection);
+    void set_next(customer *& connection);
     void print_info(); 
 
     customer *& get_next();
@@ -70,7 +70,7 @@ class cod: public customer{
     bool cash_collect();
    
     void set_cash();
-    void set_next(customer * connection);
+    void set_next(customer *& connection);
     void print_info(); 
 
     customer *& get_next();
@@ -93,7 +93,7 @@ class sig_req: public customer{
     char * set_type();
     char * set_contents(char * a_contents);
     
-    void set_next(customer * connection);
+    void set_next(customer *& connection);
     void print_info(); 
     void set_sig();
 
