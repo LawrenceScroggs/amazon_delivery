@@ -19,11 +19,11 @@ class customer{
 
   public:
 
-//    char * read();
     virtual char * set_name(char * a_name) = 0;
     virtual char * set_address(char * address) = 0;
     virtual char * set_type() = 0;
     virtual char * set_contents(char * a_contents) = 0;
+    virtual char * get_name() = 0;
 
     virtual void print_info() = 0; 
     virtual void set_next(customer *& connection) = 0;

@@ -11,7 +11,55 @@
 
 
 
+// removes a delivery type upon request
+void schedule::remove(){
 
+  char * temp = new char[100];
+  cout << "Please Enter the delivery you are looking to remove: ";
+  cin.get(temp,100);
+  cin.ignore(100,'\n');
+
+
+  if(rear == rear->get_next()){
+    if(strcmp(temp,rear->get_name()) == 0){
+        cout << "match found" << endl;
+        delete_route();
+        return;
+        }
+    else
+      cout << "No Match Found" << endl;
+
+    return;
+
+  }
+
+  customer * prev = rear;
+  customer * current = rear;
+  current = current->get_next();
+
+  remove(current,prev,temp);
+
+}
+// recursive call to find match and delete
+void schedule::remove(customer * current, customer * prev,char * temp){
+
+  if(current == rear){
+    cout << "No match found" << endl;
+    return;
+  }
+  if(strcmp(temp,current->get_name()) == 0){
+    prev->set_next(current->get_next());
+    delete current;
+    cout << "Match Found. Removed Succesfully" << endl;
+    return;
+  }
+  
+  prev = current;
+  current = current->get_next();
+
+  remove(current,prev,temp);
+
+}
 // deletes our route 
 void schedule::delete_route(){
 
@@ -68,7 +116,6 @@ void schedule::link_up(customer * current){
   }
   
   link_up(current = current->get_next());
-
 
 }
 // wrapper for display
@@ -204,6 +251,7 @@ void schedule::add_sig_req(customer * rear){
 
   add_sig_req(rear = rear->get_next());
 }  
+// this is main hub to build route
 void schedule::delivery_type(){
 
   char choice = ' ';
@@ -245,11 +293,13 @@ void schedule::delivery_type(){
   }
 
 }
+// constructor
 schedule::schedule(){
 
   rear = NULL;
 
 }
+// destructor
 schedule::~schedule(){
 
 

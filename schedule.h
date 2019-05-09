@@ -19,8 +19,9 @@ class schedule{
     ~schedule();
 
     void delivery_type(); // sets the type of delivery
-    void display_route(); 
-    void delete_route();
+    void display_route(); // displays the route
+    void delete_route(); // deletes entire route
+    void remove(); // removes specific delivery type
 
   protected:
 
@@ -31,6 +32,7 @@ class schedule{
     void link_up(); // connects CLL
 
     /***RECURSIVE CALLS****************/
+    void remove(customer * current,customer * prev, char * temp);
     void delete_route(customer * current);
     void link_up(customer * current);
     void display_route(customer * rear);
@@ -40,7 +42,5 @@ class schedule{
     void add_sig_req(customer * rear);
 
     customer * rear;
-
-
 
 };

@@ -13,6 +13,12 @@
 
 /*******************delivery functions********************************/
 
+// returns name for comparison
+char * delivery::get_name(){
+
+  return name;
+
+}
 void delivery::print_info(){
 
   cout << "ROUTE TYPE:::: " << d_type << endl;
@@ -23,6 +29,7 @@ void delivery::print_info(){
   cout << "_____________________________________________\n\n\n";
  
 }
+// sets next to type delivery
 void delivery::set_next(customer *& connection){
 
 
@@ -31,23 +38,27 @@ void delivery::set_next(customer *& connection){
   return;
  
 }
+// moves next
 customer *& delivery::get_next(){
 
   return next;
 
 }
+// sets name of delivery
 char * delivery::set_name(char * a_name){
 
   name = new char[strlen(a_name) + 1];
   strcpy(name,a_name);
 
 }
+// sets address for delivery
 char * delivery::set_address(char * a_address){
 
   address = new char[strlen(a_address) + 1];
   strcpy(address, a_address);
 
 }
+// Builds type for class to display
 char * delivery::set_type(){
 
   char temp[9]  = {'D','e','l','i','v','e','r','y','\n'};
@@ -56,6 +67,7 @@ char * delivery::set_type(){
   strcpy(d_type, temp);
 
 }
+// sets contents of delivery
 char * delivery::set_contents(char * a_contents){
 
   contents = new char[strlen(a_contents) + 1];
@@ -91,6 +103,7 @@ delivery::delivery(){
   delete [] temp2;
   delete [] temp3;
 }
+// destructor
 delivery::~delivery(){
 
 }
@@ -98,6 +111,13 @@ delivery::~delivery(){
 
 /*******************pick up functions*********************************/
 
+
+// returns name for comparison
+char * pick_up::get_name(){
+
+  return name;
+
+}
 void pick_up::print_info(){
 
   cout << "ROUTE TYPE:::: " << d_type << endl;
@@ -108,35 +128,41 @@ void pick_up::print_info(){
   cout << "_____________________________________________\n\n\n";
  
 }
+// sets the next pointer data
 void pick_up::set_next(customer *& connection){
 
 
   next = connection;
   
 }
+// moves to next
 customer *& pick_up::get_next(){
 
   return next;
 
 }
+// sets name of person needing pick up
 char * pick_up::set_name(char * a_name){
 
   name = new char[strlen(a_name) + 1];
   strcpy(name,a_name);
 
 }
+// sets address of pickup
 char * pick_up::set_address(char * a_address){
 
   address = new char[strlen(a_address) + 1];
   strcpy(address, a_address);
 
 }
+// sets contents being picked up
 char * pick_up::set_contents(char * a_contents){
 
   contents = new char[strlen(a_contents) + 1];
   strcpy(contents, a_contents);
 
 }
+// builds array for display of type
 char * pick_up::set_type(){
 
   char temp[8]  = {'P','i','c','k','-','U','p','\n'};
@@ -145,6 +171,7 @@ char * pick_up::set_type(){
   strcpy(d_type, temp);
 
 }
+// constructor
 pick_up::pick_up(){
 
   char * temp = new char[500];
@@ -173,11 +200,19 @@ pick_up::pick_up(){
   delete [] temp2;
   delete [] temp3;
 }
+// destructor
 pick_up::~pick_up(){
 
 }
 /*******************cod functions************************************/
 
+
+// returns name for comparison
+char * cod::get_name(){
+
+  return name;
+
+}
 void cod::print_info(){
 
   cout << "ROUTE TYPE:::: " << d_type << endl;
@@ -189,34 +224,40 @@ void cod::print_info(){
   cout << "_____________________________________________\n\n\n";
  
 }
+// sets next pointer data
 void cod::set_next(customer *& connection){
 
   next = connection;
   
 }
+// moves next
 customer *& cod::get_next(){
 
   return next;
 
 }
+// sets name of customer with cod
 char * cod::set_name(char * a_name){
 
   name = new char[strlen(a_name) + 1];
   strcpy(name,a_name);
 
 }
+// sets cod delivery address
 char * cod::set_address(char * a_address){
 
   address = new char[strlen(a_address) + 1];
   strcpy(address, a_address);
 
 }
+// sets contents of cod
 char * cod::set_contents(char * a_contents){
 
   contents = new char[strlen(a_contents) + 1];
   strcpy(contents, a_contents);
 
 }
+// sets the amount needed upon delivery
 void cod::set_cash(){
 
   cout << "Please set amount due: ";
@@ -226,6 +267,7 @@ void cod::set_cash(){
   cout << endl;
 
 }
+// sets type for display
 char * cod::set_type(){
 
   char temp[15] = {'C','a','s','h','-','O','n','-','D','e','m','a','n','d','\n'};
@@ -234,6 +276,7 @@ char * cod::set_type(){
   strcpy(d_type, temp);
 
 }
+// constructor
 cod::cod(){
 
   char * temp = new char[500];
@@ -262,11 +305,19 @@ cod::cod(){
   delete [] temp2;
   delete [] temp3;
 }
+// destructor
 cod::~cod(){
 
 }
 /********************signature req functions**************************/
 
+
+// returns name for comparison
+char * sig_req::get_name(){
+
+  return name;
+
+}
 void sig_req::print_info(){
 
   cout << "ROUTE TYPE:::: " << d_type << endl;
@@ -281,40 +332,47 @@ void sig_req::print_info(){
   cout << "_____________________________________________\n\n\n";
  
 }
+// sets next data of sig req type
 void sig_req::set_next(customer *& connection){
 
   next = connection;
   
 }
+// moves next
 customer *& sig_req::get_next(){
 
   return next;
 
 }
+// sets name of signature required
 char * sig_req::set_name(char * a_name){
 
   name = new char[strlen(a_name) + 1];
   strcpy(name,a_name);
 
 }
+// sets address 
 char * sig_req::set_address(char * a_address){
 
   address = new char[strlen(a_address) + 1];
   strcpy(address,a_address);
 
 }
+// sets contents being delivered
 char * sig_req::set_contents(char * a_contents){
 
   contents = new char[strlen(a_contents) + 1];
   strcpy(contents, a_contents);
 
 }
+// Lets route know a sig is req and sets variable to true
 void sig_req::set_sig(){
 
   cout << "Signature Needed" << endl << endl;
   signature = true;
 
 }
+// for display of type
 char * sig_req::set_type(){
 
   char temp[10] = {'S','i','g','n','a','t','u','r','e','\n'};
@@ -323,6 +381,7 @@ char * sig_req::set_type(){
   strcpy(d_type,temp);
 
 }
+// constructor
 sig_req::sig_req(){
 
   char * temp = new char[500];
@@ -351,6 +410,7 @@ sig_req::sig_req(){
   delete [] temp2;
   delete [] temp3;
 }
+// destructor
 sig_req::~sig_req(){
 
 }
