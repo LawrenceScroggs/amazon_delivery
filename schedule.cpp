@@ -29,6 +29,7 @@ void schedule::remove(){
     else
       cout << "No Match Found" << endl;
 
+    delete temp;
     return;
 
   }
@@ -43,13 +44,15 @@ void schedule::remove(){
 // recursive call to find match and delete
 void schedule::remove(customer * current, customer * prev,char * temp){
 
-  if(current == rear){
+  if(current == rear->get_next()){
     cout << "No match found" << endl;
+    delete temp;
     return;
   }
   if(strcmp(temp,current->get_name()) == 0){
     prev->set_next(current->get_next());
     delete current;
+    delete temp;
     cout << "Match Found. Removed Succesfully" << endl;
     return;
   }
